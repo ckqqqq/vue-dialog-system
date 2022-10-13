@@ -72,11 +72,14 @@ export default {
     onSubmit (formData) {
       //todo 提交表单
       console.log(formData)
-      console.log(jsons)
+      var jsonData={
+        "user_message" : "据了解来看" 
+      }
+      console.log("github上的")
       axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-      axios.post('http://localhost:5000/dialog/wudao/', formData)
+      axios.post('/api/dialog/wudao/', jsonData)
       .then(res=>{
-            console.log("成功!")
+            console.log("接收到数据!")
             console.log(res.data)
             // ai_response
             // this.$ai_response=1
@@ -88,14 +91,17 @@ export default {
                 emotion:'无',
                 dialog_action:"无",
               }
-            this.gridData.push(user_message)
+           this.gridData.push(user_message)
             // const ai_response_data=JSON.parse(res.data)
-            console.log(res.data.ai_response.data)
+            // console.log(res.data["data"])
+            // res.data是字符串形式log出来也没有引号，所以要解析他最好的方式就是JSON.parse
+            
+            // var api_json=JSON.parse(res.data)
             const ai_response={
                 utterance_id: '测试1',
                 dialog_id: '测试2',
                 speaker: 'wudao_AI',
-                utterance:res.data.ai_response.data.outputText,
+                utterance:res.data.data.outputText,
                 emotion:'无',
                 dialog_action:"无",
             }
@@ -103,6 +109,8 @@ export default {
 
         })
         .catch(Error=>{
+          console.log("失败")
+            // console.log(res.data)
             console.log(Error)
         })
     //   axios({

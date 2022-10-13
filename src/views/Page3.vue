@@ -1,7 +1,7 @@
 <template>
 <Layout>
   <template v-slot:main>
-    <h1>开始写这个,目前我用nginx解决一下代理的问题应该就可以，主要是模型太大了</h1>
+    <h1>盘古2.6M</h1>
   </template>
 
 </Layout>
@@ -13,7 +13,7 @@
 import Layout from "../views/Layout.vue";
 
 export default {
-  name: 'Page2',
+  name: 'Page3',
   components: {
     Layout
   }

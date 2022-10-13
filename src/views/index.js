@@ -33,7 +33,7 @@ const routes = [
     path: '/page4',
     name: 'Page4',
     component: Page4,
-    meta: { displayName: '盘古2.6M-PSY Fintune' }
+    meta: { displayName: '盘古2.6M-PSY FT' }
   },
   {
     path: '/about',
