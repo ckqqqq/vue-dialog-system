@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <template v-slot:main>
-            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <div style="display: flex; justify-content: center; margin:auto; align-items: center; height: 70%;">
                 <el-form
                     ref="loginForm"
                     :model="loginForm"

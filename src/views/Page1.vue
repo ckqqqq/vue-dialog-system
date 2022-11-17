@@ -14,6 +14,7 @@
     </el-table>
     <el-button :plain="true" @click="newDialog">开始新一轮对话</el-button>
         <!-- 生成回复 ：{{ai_response}} -->
+    <el-button :plain="true" @click="changeAcc">对话历史清零</el-button>
     <form-create
     v-model="fapi"
     :rule="rule"
@@ -75,14 +76,18 @@ export default {
   methods: {
     newDialog(){//更新时间
       this.getTime()
-      ElMessage({showClose: true,message: `开始新一轮WELM对话`, type: 'success',})
+      ElMessage({showClose: true,message: `开始新一轮对话 获得新Dialog_ID`, type: 'success',})
+    },
+    changeAcc(){
+      ElMessage({showClose: true,message: `换个账号吧`, type: 'success',})
     },
     updateForm(){
       console.log("更新表单")
       axios.get('/api/dialog/welm/',{
         params:{
           speaker: store.state.username,
-          dialog_id:"all"
+          dialog_id:"all",
+          model_name:"welm"
         }
       })
       .then(res=>{
@@ -98,10 +103,12 @@ export default {
     onSubmit (formData) {
       //todo 提交表单 POST
       console.log(formData)
+      ElMessage({showClose: true,message: `后端生成中`, type: 'success',})
       var jsonData={
         "user_message" : formData["user_message"],
         "speaker":store.state.username,
         "dialog_id":this.current_dialog_id,
+        "model_name":"welm"
         
       }
       console.log(jsonData)
@@ -109,6 +116,7 @@ export default {
       axios.post('/api/dialog/welm/', jsonData)
       .then(res=>{//弹窗
             ElMessage({showClose: true,message: `后端返回信息：${res.data.data.outputText} `,type: 'success',})
+            this.$store.state.global_message=res.data.data.outputText+" "
             console.log(`接收到数据! ${res.data} `)
             this.updateForm()//成功-刷新表单
         })

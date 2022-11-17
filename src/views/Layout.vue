@@ -59,6 +59,7 @@ export default {
                 message: `用户 ${this.$store.state.username} 注销成功!`,
                 type: 'success',
             })
+            this.$store.state.username=''
             this.$store.commit('logoff')
             this.$router.replace({ name: 'Login' })
         }

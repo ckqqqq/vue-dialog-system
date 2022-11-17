@@ -21,10 +21,8 @@
       <h1>欢迎来到中文开放域训练模型试用网站</h1>
       <h1>欢迎来到中文开放域训练模型试用网站</h1>
       <h1>欢迎来到中文开放域训练模型试用网站</h1>
+      
        <h1>欢迎来到中文开放域训练模型试用网站</h1> -->
-      <h1>欢迎来到中文开放域训练模型试用网站</h1> 
-      <el-button @click="TestMessage">取 消</el-button>
-      <button @click=LiveMessage>发消息</button>
       <div class="container">
           <div class="content">
               <div class="markdown-body"

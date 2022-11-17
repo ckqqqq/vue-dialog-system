@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    username: 'ckq',
+    username: '',
     global_message:'你好w'
   },
   live_2d:{

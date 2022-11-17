@@ -1,7 +1,7 @@
 <template>
 <Layout>
   <template v-slot:main>
-    <h1>盘古2.6 M-fintune</h1>
+    <h1>稍等</h1>
   </template>
 
 </Layout>

@@ -180,9 +180,9 @@ export default {
   },
   watch: {
     // 这是用于监听全局变量的监听器
-    global_store :function(old,newd){
+    global_store :function(newd,old){
         console.log(old,newd)
-        this.temp = old;
+        this.temp = newd;
         this.showMessage(newd)
         // https://cn.vuejs.org/guide/essentials/watchers.html#basic-example
     },
