@@ -1,21 +1,19 @@
 <template>
 <Layout>
   <template v-slot:main>
-     
      <p class="mt-4 text-sm">
       <el-table :data=this.gridData>
-      <el-table-column property="id" label="ID" width="250" />
-      <el-table-column property="dialog_id" label="DialogID" width="250" />
-      <el-table-column property="speaker" label="Speaker" width="250"/>
-      <el-table-column property="utterance" label="Utterance" width="400"/>
-      <el-table-column property="emotion" label="Emotion" width="250"/>
-      <el-table-column property="dialog_action" label="DialogAction" width="250"/>
-      <el-table-column property="user_id" label="UserID" width="250"/>
+      <el-table-column property="id" label="ID" width="50" />
+      <el-table-column property="dialog_id" label="DialogID" width="200" />
+      <el-table-column property="speaker" label="Speaker" width="120"/>
+      <el-table-column property="utterance" label="Utterance" width="600"/>
+      <el-table-column property="emotion" label="Emotion" width="120"/>
+      <el-table-column property="dialog_action" label="DialogAction" width="120"/>
+      <el-table-column property="user_id" label="UserID" width="120"/>
+      <el-table-column property="model_name" label="Model" width="120"/>
     </el-table>
-
     <el-button :plain="true" @click="newDialog">开始新一轮对话</el-button>
         <!-- 生成回复 ：{{ai_response}} -->
-    
     <form-create
     v-model="fapi"
     :rule="rule"
@@ -24,7 +22,6 @@
   ></form-create>
   </p>
   </template>
-
 </Layout>
 </template>
 
@@ -58,6 +55,7 @@ export default {
           emotion:'情感标签',
           dialog_action:"对话行为",
           user_id:"你没开后端",
+          model_name:"WELM"
         }],
         current_dialog_id:"",//当前的对话ID ，按钮或者刷新可更新
         show_all_history:true,//是否展示所有对话
@@ -77,11 +75,11 @@ export default {
   methods: {
     newDialog(){//更新时间
       this.getTime()
-      ElMessage({showClose: true,message: `开始新一轮Wudao对话`, type: 'success',})
+      ElMessage({showClose: true,message: `开始新一轮WELM对话`, type: 'success',})
     },
     updateForm(){
       console.log("更新表单")
-      axios.get('/api/dialog/wudao/',{
+      axios.get('/api/dialog/welm/',{
         params:{
           speaker: store.state.username,
           dialog_id:"all"
@@ -104,10 +102,11 @@ export default {
         "user_message" : formData["user_message"],
         "speaker":store.state.username,
         "dialog_id":this.current_dialog_id,
+        
       }
       console.log(jsonData)
       axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-      axios.post('/api/dialog/wudao/', jsonData)
+      axios.post('/api/dialog/welm/', jsonData)
       .then(res=>{//弹窗
             ElMessage({showClose: true,message: `后端返回信息：${res.data.data.outputText} `,type: 'success',})
             console.log(`接收到数据! ${res.data} `)
@@ -115,7 +114,7 @@ export default {
         })
         .catch(Error=>{
             console.log(`失败 `)
-            ElMessage({showClose: true,message: `可能wudao后端还没有开`,type: 'error',})
+            ElMessage({showClose: true,message: `可能WELM后端还没有开`,type: 'error',})
             console.log(Error)//失败打印错误
         })
     },
