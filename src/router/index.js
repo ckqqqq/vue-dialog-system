@@ -15,7 +15,7 @@ const routes = [
     path: '/page1',
     name: 'Page1',
     component: Page1,
-    meta: { displayName: '悟道API' }
+    meta: { displayName: '微信WELM api' }
   },
   {
     path: '/page2',

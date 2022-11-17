@@ -28,9 +28,9 @@ export default {
   data () {
     return {
       direction: 'right',
-      style: 'position: fixed; bottom: 0; left: 0; zIndex: 1',
-      width: 500,
-      height: 500,
+      style: 'position: fixed; bottom: 0; right: 0; zIndex: 1',
+      width: 400,
+      height: 400,
       size: 350,
       tips: {
         mouseover: [{
