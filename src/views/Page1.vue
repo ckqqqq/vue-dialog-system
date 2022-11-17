@@ -36,7 +36,7 @@ import store from '../store'
 // Vue.prototype.$axios=axios //定义为全局
 var jsons={  
     arr:["123"],
-    user_message:'123'
+    user_message:'测试'
 }
 
 //测试用的jsons
