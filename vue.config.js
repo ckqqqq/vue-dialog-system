@@ -48,7 +48,7 @@ module.exports = {
           '/api':{
               // target:'http://172.17.0.4:5001',
               target:'http://0.0.0.0:5001',
-              // target:'http://0.0.0.0:5010',
+              // target:'http://0.0.0.0:5010',# 5010是后端接口
               // 172.17.0.4
               ws:true,
               changeOrigin:true,//允许跨域
