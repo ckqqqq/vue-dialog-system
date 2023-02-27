@@ -12,16 +12,16 @@ const routes = [
     meta: { displayName: '首页' }
   },
   {
-    path: '/page4',
-    name: 'Page4',
+    path: '/page5',
+    name: 'Page5',
     component: Page4,
     meta: { displayName: '标注' }
   },
   {
-    path: '/page5',
-    name: 'Page5',
+    path: '/page4',
+    name: 'Page4',
     component: Page4,
-    meta: { displayName: '盘古2.6M-PSY Fintune' }
+    meta: { displayName: '标注' }
   },
   {
     path: '/page1',
